@@ -1,0 +1,7 @@
+steps:
+# build the docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/gsutil-beta:$BRANCH_NAME', '-f', '.gcp.config/Dockerfile', '.']
+  dir: '.'
+images: ['gcr.io/$PROJECT_ID/gsutil-beta']
+timeout: 900s
